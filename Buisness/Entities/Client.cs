@@ -9,7 +9,7 @@ namespace Business.Entities
         public int Id { get; set; }
         public string FIO { get; set; }
         public string PassportSeriesAndNumber { get; set; }
-        public string DateBirth { get; set; }
+        public DateTime DateBirth { get; set; }
         public string Address { get; set; }
         public virtual City City { get; set; }
         public int? CityId { get; set; }

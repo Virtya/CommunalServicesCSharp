@@ -10,7 +10,7 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220122232330_Migr")]
+    [Migration("20220123104841_Migr")]
     partial class Migr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,8 +49,8 @@ namespace Repository.Migrations
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DateBirth")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FIO")
                         .HasColumnType("nvarchar(max)");

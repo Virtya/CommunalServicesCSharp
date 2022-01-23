@@ -69,7 +69,7 @@ namespace Repository.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PassportSeriesAndNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateBirth = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CityId = table.Column<int>(type: "int", nullable: true),
                     GenderId = table.Column<int>(type: "int", nullable: true)

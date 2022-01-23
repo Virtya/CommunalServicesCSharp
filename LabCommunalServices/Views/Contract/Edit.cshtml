@@ -15,15 +15,15 @@
     <table class="table">
         <tr>
             <td>Номер контракта:</td>
-            <td><input type="text" required name="ContractNumber" value="@Model?.ContractNumber" /></td>
+            <td><input type="text" pattern="\d*" required name="ContractNumber" value="@Model?.ContractNumber" /></td>
         </tr>
         <tr>
             <td>Сумма выплаты:</td>
-            <td><input type="text" placeholder="10000" required name="PayableAmount" value="@Model?.PayableAmount" /></td>
+            <td><input type="text" pattern="\d*" placeholder="10000" required name="PayableAmount" value="@Model?.PayableAmount" /></td>
         </tr>
         <tr>
             <td>Дата выплаты:</td>
-            <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}+" placeholder="25.01.2022" required name="PaymentTerm" value="@Model?.PaymentTerm" /></td>
+            <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}*" placeholder="25.01.2022" required name="PaymentTerm" value="@Model?.PaymentTerm" /></td>
         </tr>
         <tr>
             <td>Клиент:</td>

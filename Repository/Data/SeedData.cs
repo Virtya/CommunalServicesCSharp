@@ -154,7 +154,7 @@ namespace Repository.Data
             {
                 FIO = "Малышев Владислав Маркович",
                 PassportSeriesAndNumber = "2018 513234",
-                DateBirth = "11.12.1998",
+                DateBirth = new DateTime(1998,12,11,00,00,00),
                 Address = "Ленинский проспект, 17, 56",
                 City = Cities.ElementAt(0),
                 Gender = Genders.ElementAt(0),
@@ -163,7 +163,7 @@ namespace Repository.Data
             {
                 FIO = "Леонова Татьяна Андреевна",
                 PassportSeriesAndNumber = "2010 123634",
-                DateBirth = "01.05.1988",
+                DateBirth = new DateTime(1988,01,05,00,00,00),
                 Address = "ул. Солнечная, 7, 12",
                 City = Cities.ElementAt(1),
                 Gender = Genders.ElementAt(1),
@@ -172,7 +172,7 @@ namespace Repository.Data
             {
                 FIO = "Головин Элина Артёмович",
                 PassportSeriesAndNumber = "2020 232539",
-                DateBirth = "10.01.2000",
+                DateBirth = new DateTime(2000,10,01,00,00,00),
                 Address = "ул. Гончарная, 9, 22",
                 City = Cities.ElementAt(2),
                 Gender = Genders.ElementAt(2),
@@ -181,7 +181,7 @@ namespace Repository.Data
             {
                 FIO = "Добрыня Никитич",
                 PassportSeriesAndNumber = "1070 827327",
-                DateBirth = "14.05.1050",
+                DateBirth = new DateTime(1050,05,10,00,00,00),
                 Address = "ул. Старословянская, 3 изба",
                 City = Cities.ElementAt(6),
                 Gender = Genders.ElementAt(0),

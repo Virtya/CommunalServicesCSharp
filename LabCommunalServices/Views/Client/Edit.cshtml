@@ -14,11 +14,11 @@
         <table class="table">
             <tr>
                 <td>ФИО:</td>
-                <td><input type="text" required name="FIO" value="@Model?.FIO" /></td>
+                <td><input type="text" pattern="\D*" required name="FIO" value="@Model?.FIO" /></td>
             </tr>
             <tr>
                 <td>Дата рождения:</td>
-                <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}" placeholder="01.01.2000" required name="DateBirth" value="@Model?.DateBirth" /></td>
+                <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}*" placeholder="01.01.2000" required name="DateBirth" value="@Model?.DateBirth" /></td>
             </tr>
             <tr>
                 <td>Адрес проживания:</td>

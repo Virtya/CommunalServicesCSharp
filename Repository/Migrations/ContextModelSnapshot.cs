@@ -47,8 +47,8 @@ namespace Repository.Migrations
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DateBirth")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FIO")
                         .HasColumnType("nvarchar(max)");

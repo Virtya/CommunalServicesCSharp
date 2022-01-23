@@ -9,7 +9,7 @@ namespace Business.Interop
         public int Id { get; set; }
         public string FIO { get; set; }
         public string PassportSeriesAndNumber { get; set; }
-        public string DateBirth { get; set; }
+        public DateTime DateBirth { get; set; }
         public string Address { get; set; }
         public virtual CityDto City { get; set; }
         public int? CityId { get; set; }
