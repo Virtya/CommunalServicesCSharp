@@ -18,7 +18,9 @@ namespace Repository.Data
         public DbSet<PaymentDoс> PaymentDoсs { get; set; }
         public DbSet<Service> Services { get; set; }
 
-        public Context(DbContextOptions<Context> options) : base(options) { }
+        public Context(DbContextOptions<Context> options) : base(options) {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
