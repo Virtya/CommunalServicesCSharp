@@ -1,0 +1,72 @@
+﻿@model Business.Interop.ClientDto
+
+@{ ViewData["Title"] = "Добавление"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание клиента</h4>
+    <form asp-controller="Client" asp-action="Edit" method="post">
+        @if (Model != null)
+        {
+    <input type="hidden" name="Id" value="@Model.Id"></input>}
+        <table class="table">
+            <tr>
+                <td>ФИО:</td>
+                <td><input type="text" required name="FIO" value="@Model?.FIO" /></td>
+            </tr>
+            <tr>
+                <td>Дата рождения:</td>
+                <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}" placeholder="01.01.2000" required name="DateBirth" value="@Model?.DateBirth" /></td>
+            </tr>
+            <tr>
+                <td>Адрес проживания:</td>
+                <td><input type="text" placeholder="Московский пр-кт, 110, 141" required name="Address" value="@Model?.Address" /></td>
+            </tr>
+            <tr>
+                <td>Серия и номер паспорта:</td>
+                <td><input type="text" pattern="[0-9]{4} [0-9]{6}" placeholder="2015 593551" required name="PassportSeriesAndNumber" value="@Model?.PassportSeriesAndNumber" /></td>
+            </tr>
+            <tr>
+                <td>Пол:</td>
+                <td>
+                    <select name="GenderId" required>
+                        @foreach (var gender in ViewBag.Genders)
+                        {
+                            if (Model?.Gender.Id == gender.Id)
+                            {
+                                <option value="@gender.Id" selected>@gender.Name</option> 
+                            }
+                            else
+                            {
+                                <option value="@gender.Id">@gender.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>Город проживания:</td>
+                <td>
+                    <select name="CityId" required>
+                        @foreach (var city in ViewBag.Cities)
+                        {
+                            if (Model?.City.Id == city.Id)
+                            {
+                                <option value="@city.Id" selected>@city.Name</option> 
+                            }
+                            else
+                            {
+                                <option value="@city.Id">@city.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+        <p></p>
+        <h4><a asp-controller="Client" asp-action="Index">Назад</a></h4>
+        <hr />
+    </form>
+</body>
+</html>

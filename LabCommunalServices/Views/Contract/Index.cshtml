@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Business.Interop.ContractDto>
+
+@{ ViewData["Title"] = "Контракты"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @if (!Model.Any())
+    {
+        <p>Контрактов еще не добавлено</p> }
+    else
+    {
+    <table class="table">
+        <tr>
+            <th>Номер контракта</th>
+            <th>Сумма выплаты</th>
+            <th>Клиент</th>
+            <th></th>
+        </tr>
+        @foreach (var contract in Model)
+        {
+        <tr>
+            <td>@contract.ContractNumber</td>
+            <td>@contract.PayableAmount</td>
+            <td>@contract.Client?.FIO</td>
+            <td><a asp-controller="Contract" asp-action="Home" asp-route-id="@contract.Id"><h6>Подробности</h6></a></td>
+        </tr>
+    }
+    </table>
+    <br />
+    }
+    <h4><a asp-controller="Contract" asp-action="Edit">Создать</a></h4>
+    <hr />
+    <h4><a asp-controller="Home" asp-action="Index">Назад</a></h4>
+    <hr />
+</body>
+</html>

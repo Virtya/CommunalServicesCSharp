@@ -1,0 +1,85 @@
+﻿@model Business.Interop.ContractDto
+
+@{ ViewData["Title"] = "Изменение"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание контракта</h4>
+    <form asp-controller="Contract" asp-action="Edit" method="post">
+    @if (Model != null)
+    {
+        <input type="hidden" name="Id" value="@Model.Id"></input>
+    }
+    <table class="table">
+        <tr>
+            <td>Номер контракта:</td>
+            <td><input type="text" required name="ContractNumber" value="@Model?.ContractNumber" /></td>
+        </tr>
+        <tr>
+            <td>Сумма выплаты:</td>
+            <td><input type="text" placeholder="10000" required name="PayableAmount" value="@Model?.PayableAmount" /></td>
+        </tr>
+        <tr>
+            <td>Дата выплаты:</td>
+            <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}+" placeholder="25.01.2022" required name="PaymentTerm" value="@Model?.PaymentTerm" /></td>
+        </tr>
+        <tr>
+            <td>Клиент:</td>
+            <td>
+                <select name="ClientID" required>
+                    @foreach (var client in ViewBag.Clients)
+                    {
+                        if (Model?.Client?.Id == client.Id)
+                        {
+                            <option value="@client.Id" selected>@client.FIO</option>
+
+                        }
+                        else
+                        {
+                            <option value="@client.Id">@client.FIO</option>
+                        }
+                    }
+                </select>
+            </td>
+            <td>Услуга:</td>
+            <td>
+                <select name="ServiceId" required>
+                    @foreach (var service in ViewBag.Services)
+                    {
+                        if (Model?.Service?.Id == service.Id)
+                        {
+                            <option value="@service.Id" selected>@service.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@service.Id">@service.Name</option>
+                        }
+                    }
+                </select>
+            </td>
+            <td>Закон:</td>
+            <td>
+                <select name="LawId" required>
+                    @foreach (var law in ViewBag.Laws)
+                    {
+                        if (Model?.Law?.Id == law.Id)
+                        {
+        <option value="@law.Id" selected>@law.Wording</option> }
+                        else
+                        {
+        <option value="@law.Id">@law.Wording</option>}
+                    }
+                </select>
+            </td>
+        </tr>
+    </table>
+        <input type="submit" value="Отправить" />
+        <p></p>
+        <hr />
+        <h4><a asp-controller="Contract" asp-action="Index">Назад</a></h4>
+        <hr />
+    </form>
+</body>
+</html>

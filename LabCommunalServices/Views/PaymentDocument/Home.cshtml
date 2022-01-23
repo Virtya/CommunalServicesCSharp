@@ -1,0 +1,32 @@
+﻿@using Business.Interop;
+@model PaymentDocDto
+
+@{ ViewData["Title"] = "Информация о платёжном документе"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+
+    <table class="table">
+        <tr>
+            <th>Название документа</th>
+            <th>Клиент</th>
+            <th>Номер контракта</th>
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Client?.FIO</td>
+            <td>@Model.Contract?.ContractNumber</td>
+        </tr>
+    </table>
+    <h5><a asp-controller="PaymentDocument" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></h5>
+    <hr />
+    <h5><a asp-controller="PaymentDocument" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a></h5>
+    <hr />
+    <h5><a asp-controller="PaymentDocument" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку платёжных документов</a></h5>
+    <hr />
+    }
+</body>
+</html>

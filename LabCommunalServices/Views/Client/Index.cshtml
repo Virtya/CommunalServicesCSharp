@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Business.Interop.ClientDto>
+
+@{ ViewData["Title"] = "Клиенты"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @if (!Model.Any())
+    {
+        <p>Ещё не добавлено ни одного клиента</p> }
+    else
+    {
+    <table class="table">
+    <tr>
+        <th>ФИО</th>
+        <th>Дата рождения</th>
+        <th>Серия и номер паспорта</th>
+        <th></th>
+    </tr>
+    @foreach (var client in Model)
+    {
+        <tr>
+            <td>@client.FIO</td>
+            <td>@client.DateBirth</td>
+            <td>@client.PassportSeriesAndNumber</td>
+            <td><a asp-controller="Client" asp-action="Home" asp-route-id="@client.Id"><h6>Подробности</h6></a></td>
+        </tr>                
+    }
+    </table>
+    <br />            }
+    <h4><a asp-controller="Client" asp-action="Edit">Создать</a></h4>
+    <hr />
+    <h4><a asp-controller="Home" asp-action="Index">Назад</a></h4>
+    <hr />
+</body>
+</html>

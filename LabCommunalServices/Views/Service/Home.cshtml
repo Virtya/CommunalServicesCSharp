@@ -1,0 +1,30 @@
+﻿@using Business.Interop;
+@model ServiceDto
+
+@{ ViewData["Title"] = "Информация об услуге"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+
+    <table class="table">
+        <tr>
+            <th>Наименование услуги</th>
+            <th>Назначение услуги</th>
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Destination</td>
+        </tr>
+    </table>
+    <h5><a asp-controller="Service" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></h5>
+    <hr />
+    <h5><a asp-controller="Service" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a></h5>
+    <hr />
+    <h5><a asp-controller="Service" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку услуг</a></h5>
+    <hr />
+    }
+</body>
+</html>

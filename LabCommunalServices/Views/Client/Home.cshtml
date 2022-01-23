@@ -1,0 +1,38 @@
+﻿@using Business.Interop;
+@model ClientDto
+
+@{ ViewData["Title"] = "Информация о клиенте"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+
+    <table class="table">
+        <tr>
+            <th>ФИО</th>
+            <th>Дата рождения</th>
+            <th>Пол</th>
+            <th>Адрес проживания</th>
+            <th>Город проживания</th>
+            <th>Серия и номер паспорта</th>
+        </tr>
+        <tr>
+            <td>@Model.FIO</td>
+            <td>@Model.DateBirth</td>
+            <td>@Model.Gender.Name</td>
+            <td>@Model.Address</td>
+            <td>@Model.City.Name</td>
+            <td>@Model.PassportSeriesAndNumber</td>
+        </tr>
+    </table>
+    <h5><a asp-controller="Client" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></h5>
+    <hr />
+    <h5><a asp-controller="Client" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a></h5>
+    <hr />
+    <h5><a asp-controller="Client" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку клиентов</a></h5>
+    <hr />
+    }
+</body>
+</html>

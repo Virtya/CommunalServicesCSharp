@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .MyClass {
+        margin-top: 20px;
+        height: 150px;
+        width: 500px;
+    }
+</style>
+
+<div class="container">
+    <form method="get" asp-controller="Client" asp-action="Index">
+        <button type="submit" class="btn btn-light MyClass"><h3>Клиенты</h3></button>
+    </form>
+    <hr />
+
+    <form method="get" asp-controller="Contract" asp-action="Index">
+        <button type="submit" class="btn btn-light MyClass"><h3>Контракты</h3></button>
+    </form>
+    <hr />
+
+    <form method="get" asp-controller="PaymentDocument" asp-action="Index">
+        <button type="submit" class="btn btn-light MyClass"><h3>Платёжные документы</h3></button>
+    </form>
+    <hr />
+
+    <form method="get" asp-controller="Service" asp-action="Index">
+        <button type="submit" class="btn btn-light MyClass"><h3>Услуги</h3></button>
+    </form>
+    <hr />
+</div>

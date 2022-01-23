@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Business.Interop.ServiceDto>
+
+@{ ViewData["Title"] = "Услуги"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @if (!Model.Any())
+    {
+        <p>Услуг еще не добавлено</p> }
+    else
+    {
+    <table class="table">
+        <tr>
+            <th>Наименование услуги</th>
+            <th>Назначение услуги</th>
+            <th></th>
+        </tr>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Name</td>
+                <td>@service.Destination</td>
+                <td><a asp-controller="Service" asp-action="Home" asp-route-id="@service.Id"><h6>Подробности</h6></a></td>
+            </tr>
+        }
+    </table>
+    <br />
+    }
+    <h4><a asp-controller="Service" asp-action="Edit">Создать</a></h4>
+    <hr />
+    <h4><a asp-controller="Home" asp-action="Index">Назад</a></h4>
+    <hr />
+</body>
+</html>

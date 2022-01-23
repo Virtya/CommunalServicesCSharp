@@ -1,0 +1,31 @@
+﻿@model Business.Interop.ServiceDto
+
+@{ ViewData["Title"] = "Добавление"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание услуги</h4>
+    <form asp-controller="Service" asp-action="Edit" method="post">
+        @if (Model != null)
+        {
+        <input type="hidden" name="Id" value="@Model.Id"></input>
+        }
+        <table class="table">
+            <tr>
+                <td>Наименование услуги:</td>
+                <td><input type="text" required name="Name" value="@Model?.Name" /></td>
+            </tr>
+            <tr>
+                <td>Назначение услуги:</td>
+                <td><input type="text" required name="Destination" value="@Model?.Destination" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+        <p></p>
+        <h4><a asp-controller="Service" asp-action="Index">Назад</a></h4>
+        <hr />
+    </form>
+</body>
+</html>

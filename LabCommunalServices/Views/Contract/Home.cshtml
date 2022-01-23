@@ -1,0 +1,37 @@
+﻿@using Business.Interop;
+@model ContractDto
+
+@{ ViewData["Title"] = "Информация о контракте"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+
+    <table class="table">
+        <tr>
+            <th>Номер контракта</th>
+            <th>Сумма выплаты</th>
+            <th>Дата выплаты</th>
+            <th>Предоставляемая услуга</th>
+            <th>Клиент</th>
+            <th>Закон</th>
+        </tr>
+        <tr>
+            <td>@Model.ContractNumber</td>
+            <td>@Model.PayableAmount</td>
+            <td>@Model.PaymentTerm</td>
+            <td>@Model.Service?.Name</td>
+            <td>@Model.Client?.FIO</td>
+            <td>@Model.Law?.Wording</td>
+        </tr>
+    </table>
+    <h5><a asp-controller="Contract" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></h5>
+    <hr />
+    <h5><a asp-controller="Contract" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a></h5>
+    <hr />
+    <h5><a asp-controller="Contract" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку контрактов</a></h5>
+    <hr />}
+</body>
+</html>

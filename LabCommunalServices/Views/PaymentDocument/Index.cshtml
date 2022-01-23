@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Business.Interop.PaymentDocDto>
+
+@{ ViewData["Title"] = "Платёжные документы"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @if (!Model.Any())
+    {
+        <p>Документов еще не добавлено</p>
+    }
+    else
+    {
+    <table class="table">
+    <tr>
+        <th>Наименование документа</th>
+        <th>ФИО клиента</th>
+        <th>Номер контракта</th>
+        <th></th>
+    </tr>
+    @foreach (var payDoc in Model)
+    {
+    <tr>
+        <td>@payDoc.Name</td>
+        <td>@payDoc.Client?.FIO</td>
+        <td>@payDoc.Contract?.ContractNumber</td>
+        <td><a asp-controller="PaymentDocument" asp-action="Home" asp-route-id="@payDoc.Id"><h6>Подробности</h6></a></td>
+    </tr>
+    }
+    </table>
+    <br />
+    }
+    <h4><a asp-controller="PaymentDocument" asp-action="Edit">Создать</a></h4>
+    <hr />
+    <h4><a asp-controller="Home" asp-action="Index">Назад</a></h4>
+    <hr />
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@model Business.Interop.PaymentDocDto
+
+@{ ViewData["Title"] = "Добавление"; }
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание платёжного документа</h4>
+    <form asp-controller="PaymentDocument" asp-action="Edit" method="post">
+        @if (Model != null)
+        {
+    <input type="hidden" name="Id" value="@Model.Id"></input>}
+        <table class="table">
+            <tr>
+                <td>Наименование документа:</td>
+                <td><input type="text" required name="Name" value="@Model?.Name" /></td>
+            </tr>
+            <tr>
+                <td>Клиент:</td>
+                <td>
+                    <select name="ClientID" required>
+                        @foreach (var client in ViewBag.Clients)
+                        {
+                            if (Model?.Client?.Id == client.Id)
+                            {
+                                <option value="@client.Id" selected>@client.FIO</option>
+                            }
+                            else
+                            {
+                                <option value="@client.Id">@client.FIO</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>Контракт:</td>
+                <td>
+                    <select name="ContractId" required>
+                        @foreach (var contract in ViewBag.Contracts)
+                        {
+                            if (Model?.Contract?.Id == contract.Id)
+                            {
+                                <option value="@contract.Id" selected>@contract.ContractNumber</option>
+                            }
+                            else
+                            {
+                                <option value="@contract.Id">@contract.ContractNumber</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+        <p></p>
+        <h4><a asp-controller="PaymentDocument" asp-action="Index">Назад</a></h4>
+        <hr />
+    </form>
+</body>
+</html>
